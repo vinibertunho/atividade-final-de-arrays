@@ -118,19 +118,14 @@ let primeiroItemRemoveBeta = inventarioBeta.shift();
 console.table(inventarioBeta);
 
 // Verifique se a “Relíquia de Zordon” está presente no inventário Beta.
-console.log(
-  `O inventario beta possui Relíquia de Zordon?, ${inventarioBeta.includes(
-    "Relíquia de Zordon"
-  )}`
-);
+const nomesItens = inventarioBeta.map((item) => item[0]);
+const reliquiaExiste = nomesItens.includes("Relíquia de Zordon");
+console.log(reliquiaExiste);
 
 // Verifique se o item “Nanofibra Luminosa” ainda está disponível na Alpha.
-console.log(
-  `O inventario Alpha possui Nanofibra Luminosa?, ${inventarioAlpha.includes(
-    "Nanofibra Luminosa"
-  )}`
-);
-
+const nomeItens = inventarioAlpha.map((item) => item[0]);
+const reliquiaExistente = nomeItens.includes("Nanofibra Luminosa");
+console.log(reliquiaExistente);
 // Gere uma string com todos os planetas do inventário Alpha, separados por um delimitador.
 let string = ", ";
 
@@ -151,6 +146,75 @@ let novoBeta = inventarioBeta.splice(0, 5);
 console.log(novoBeta);
 
 //Separe os 10 últimos itens do inventário Alpha para estudo temporal.
- let separando = inventarioAlpha.splice(-10)
- console.log(separando);
- 
+let separando = inventarioAlpha.splice(-10);
+console.log(separando);
+
+//O quinto item da Alpha foi substituído por uma versão mais moderna. Atualize.
+let itemAtualizado = inventarioAlpha.splice(4, 1, [
+  "Torreta Laser",
+  "Mercurio",
+  23540,
+]);
+console.table(inventarioAlpha);
+
+//Dois itens no meio do inventário Beta foram contaminados e precisam ser removidos.
+let itensContaminados = inventarioBeta.splice(13, 2);
+console.table(inventarioBeta);
+
+//Unifique os inventários Alpha e Beta em uma única estrutura.
+console.log(
+  `Os Inventarios combinados: ${inventarioAlpha.concat(inventarioBeta)}`
+);
+console.log(
+  `Os Iventarios Combinados: ${inventarioAlpha
+    .concat(inventarioBeta)
+    .join(", ")}`
+);
+
+// Junte os cinco primeiros itens de cada nave em uma nova vitrine de destaques.
+let vitrineEmDestaques = [
+  ...inventarioAlpha.slice(0, 5),
+  ...inventarioBeta.slice(0, 5),
+];
+
+console.log(vitrineEmDestaques);
+
+//Crie uma versão com os nomes de todos os itens da Beta em letras maiúsculas.
+const betaMaiusculo = inventarioBeta.map((item) => [
+  item[0].toUpperCase(),
+  item[1],
+  item[2],
+]);
+console.log(betaMaiusculo);
+//Converta os valores de todos os itens da Alpha para uma moeda interestelar (multiplicação).
+
+let fatorConversao = 6;
+
+let inventarioAlphaInterestelar = inventarioAlpha.map((item) => [
+  item[0],
+  item[1],
+  item[2] * fatorConversao,
+]);
+
+console.log(inventarioAlphaInterestelar);
+
+//Filtre da Beta apenas os itens que custam mais de 7000 créditos.
+
+let maioresDe7000 = inventarioBeta.filter((item) => item[2] > 7000);
+
+console.log(maioresDe7000);
+
+//Filtre da Alpha todos os itens originários da Terra para despacho diplomático.
+let itensTerra = inventarioAlpha.filter((item) => item[2] = "terra")
+console.log(itensTerra);
+
+//Reorganize os itens da Beta do menor para o maior valor.
+inventarioBeta.sort((a, b) => a[2] - b[2]);
+
+console.log(inventarioBeta);
+
+//Reorganize a lista da Alpha em ordem alfabética dos nomes dos artefatos.
+inventarioAlpha.sort()
+console.log(inventarioAlpha);
+
+//Inverta a ordem de todos os itens da Beta para visualização reversa.
