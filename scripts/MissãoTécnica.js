@@ -198,23 +198,11 @@ let inventarioAlphaInterestelar = inventarioAlpha.map((item) => [
 
 console.log(inventarioAlphaInterestelar);
 
-//Filtre da Beta apenas os itens que custam mais de 7000 créditos.
+//Inverta a ordem dos 15 primeiros itens da Alpha como simulação de viagem no tempo.
 
-let maioresDe7000 = inventarioBeta.filter((item) => item[2] > 7000);
+let primeiros15Invertidos = inventarioAlpha.slice(0, 15).reverse();
+let inventarioAlphaViagemTempo = primeiros15Invertidos.concat(
+  inventarioAlpha.slice(15)
+);
 
-console.log(maioresDe7000);
-
-//Filtre da Alpha todos os itens originários da Terra para despacho diplomático.
-let itensTerra = inventarioAlpha.filter((item) => item[2] = "terra")
-console.log(itensTerra);
-
-//Reorganize os itens da Beta do menor para o maior valor.
-inventarioBeta.sort((a, b) => a[2] - b[2]);
-
-console.log(inventarioBeta);
-
-//Reorganize a lista da Alpha em ordem alfabética dos nomes dos artefatos.
-inventarioAlpha.sort()
-console.log(inventarioAlpha);
-
-//Inverta a ordem de todos os itens da Beta para visualização reversa.
+console.log(inventarioAlphaViagemTempo);
