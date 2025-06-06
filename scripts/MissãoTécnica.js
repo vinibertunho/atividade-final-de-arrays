@@ -26,7 +26,7 @@ let inventarioAlpha = [
   ["Cristal Ômega", "Andrômeda", 13900],
   ["Cristal Ômega", "Andrômeda", 13900],
 ];
-console.log(inventarioAlpha);
+console.table(inventarioAlpha);
 
 let inventarioBeta = [
   ["Lâmina Solar", "Mercúrio", 6700],
@@ -55,18 +55,18 @@ let inventarioBeta = [
   ["Capa de Invisibilidade", "Terra", 3900],
   ["Terminal de Dobra", "Alpha Centauri", 10500],
 ];
-console.log(inventarioBeta);
+console.table(inventarioBeta);
 
 // Um item duplicado foi detectado no final do inventário Alpha. Remova a cópia.
 
 let ultimoItemAlpha = inventarioAlpha.pop();
-console.log(inventarioAlpha);
+console.table(inventarioAlpha);
 
 // Um artefato obsoleto foi removido do final da lista Beta após avaliação técnica.
 
 let ultimoItemDaListaBeta = inventarioBeta.pop();
 
-console.log(inventarioBeta);
+console.table(inventarioBeta);
 
 // Três novos artefatos da Terra foram entregues à nave Alpha. Adicione-os ao final.
 
@@ -84,7 +84,7 @@ inventarioBeta.push(
   ["Oculos de Uranio", "Kepler-672-b", 3200]
 );
 
-console.log(inventarioBeta);
+console.table(inventarioBeta);
 
 //Um item da Alpha precisa aparecer no topo da lista para ser destacado na vitrine.
 
@@ -94,11 +94,13 @@ if (idx > -1) {
   inventarioAlpha.unshift(destacado);
 }
 
-console.log(inventarioAlpha);
+console.table(inventarioAlpha);
 
 // Um item da Beta deve ser promovido para o início da lista para estudo prioritário.
 
-let idxx = inventarioBeta.findIndex((item) => item[0] === "Capa de Invisibilidade");
+let idxx = inventarioBeta.findIndex(
+  (item) => item[0] === "Capa de Invisibilidade"
+);
 
 if (idxx > -1) {
   let [destacar] = inventarioBeta.splice(idxx, 1);
@@ -106,6 +108,36 @@ if (idxx > -1) {
   inventarioBeta.unshift(destacar);
 }
 
-console.log(inventarioBeta);
+console.table(inventarioBeta);
+
+let primeiroRemovidoAlpha = inventarioAlpha.shift();
+console.table(inventarioAlpha);
+
+// O primeiro item da Beta pertence a um museu e deve ser removido.
+let primeiroItemRemoveBeta = inventarioBeta.shift();
+console.table(inventarioBeta);
+
+// Verifique se a “Relíquia de Zordon” está presente no inventário Beta.
+console.log(
+  `O inventario beta possui Relíquia de Zordon?, ${inventarioBeta.includes(
+    "Relíquia de Zordon"
+  )}`
+);
+
+// Verifique se o item “Nanofibra Luminosa” ainda está disponível na Alpha.
+console.log(
+  `O inventario Alpha possui Nanofibra Luminosa?, ${inventarioAlpha.includes(
+    "Nanofibra Luminosa"
+  )}`
+);
+
+// Gere uma string com todos os planetas do inventário Alpha, separados por um delimitador.
+let string = ", ";
 
 
+let planetas = inventarioAlpha.map(item => item[1]).join(string);
+
+console.log(planetas);
+
+
+//Crie um texto com os nomes dos 10 primeiros itens da Beta, separados por vírgulas.
