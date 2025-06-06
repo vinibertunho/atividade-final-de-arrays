@@ -70,9 +70,42 @@ console.log(inventarioBeta);
 
 // Três novos artefatos da Terra foram entregues à nave Alpha. Adicione-os ao final.
 
-inventarioAlpha.push(["Pulseira do Infinito", "Terra", 7600],["Códice Celestial", "Terra", 11900],["Cálice da Aurora", "Terra", 5600]);
+inventarioAlpha.push(
+  ["Pulseira do Infinito", "Terra", 7600],
+  ["Códice Celestial", "Terra", 11900],
+  ["Cálice da Aurora", "Terra", 5600]
+);
 
 console.table(inventarioAlpha);
 
-
 // Dois artefatos especiais de Kepler foram coletados e adicionados à nave Beta.
+inventarioBeta.push(
+  ["Telescopio Ultra Visão Noturna", "Kepler-920b", 12900],
+  ["Oculos de Uranio", "Kepler-672-b", 3200]
+);
+
+console.log(inventarioBeta);
+
+//Um item da Alpha precisa aparecer no topo da lista para ser destacado na vitrine.
+
+let idx = inventarioAlpha.findIndex((item) => item[0] === "Cristal Ômega");
+if (idx > -1) {
+  let destacado = inventarioAlpha.splice(idx, 1)[0];
+  inventarioAlpha.unshift(destacado);
+}
+
+console.log(inventarioAlpha);
+
+// Um item da Beta deve ser promovido para o início da lista para estudo prioritário.
+
+let idxx = inventarioBeta.findIndex((item) => item[0] === "Capa de Invisibilidade");
+
+if (idxx > -1) {
+  let [destacar] = inventarioBeta.splice(idxx, 1);
+
+  inventarioBeta.unshift(destacar);
+}
+
+console.log(inventarioBeta);
+
+
