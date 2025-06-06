@@ -149,3 +149,8 @@ console.log(nomes);
 //Gere uma nova lista com os 5 primeiros itens da nave Beta para inspeção.
 let novoBeta = inventarioBeta.splice(0, 5);
 console.log(novoBeta);
+
+//Separe os 10 últimos itens do inventário Alpha para estudo temporal.
+ let separando = inventarioAlpha.splice(-10)
+ console.log(separando);
+ 
