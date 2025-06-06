@@ -134,10 +134,18 @@ console.log(
 // Gere uma string com todos os planetas do inventário Alpha, separados por um delimitador.
 let string = ", ";
 
-
-let planetas = inventarioAlpha.map(item => item[1]).join(string);
+let planetas = inventarioAlpha.map((item) => item[1]).join(string);
 
 console.log(planetas);
 
-
 //Crie um texto com os nomes dos 10 primeiros itens da Beta, separados por vírgulas.
+let nomes = inventarioBeta
+  .slice(0, 10)
+  .map((item) => item[0])
+  .join(", ");
+
+console.log(nomes);
+
+//Gere uma nova lista com os 5 primeiros itens da nave Beta para inspeção.
+let novoBeta = inventarioBeta.splice(0, 5);
+console.log(novoBeta);
